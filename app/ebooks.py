@@ -1,6 +1,3 @@
-import random
-import re
-import sys
 from .markov import *
 
 def write_sonnet():
@@ -54,8 +51,3 @@ def write_sonnet():
             print("TOO LONG: " + ebook_tweet)
 
     return new_sonnet
-
-
-#universal variables
-sonnet_number = random.randrange(155, 647)
-sonnet_lines = write_sonnet()
