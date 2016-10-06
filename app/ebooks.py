@@ -2,9 +2,9 @@ import random
 import re
 import sys
 # import twitter
-import markov
+from .markov import *
 # from htmlentitydefs import name2codepoint as n2c
-from local_settings import *
+from .local_settings import *
 
 def entity(text):
     if text[:2] == "&#":
@@ -48,7 +48,7 @@ def grab_tweets(api, max_id=None):
             source_tweets.append(tweet.text)
     return source_tweets, max_id
 
-if __name__=="__main__":
+if True:
     order = ORDER
     sonnet_number = random.randrange(155, 647)
     sonnet_lines = []
@@ -65,7 +65,7 @@ if __name__=="__main__":
             if item != '' and not item.startswith("XC") and not item.startswith("LX") and not item.startswith("II") and not item.startswith("IV") and not item.startswith("VI") and not item.startswith("CX") and not item.startswith("L.") and not item.startswith("C.") and not item.startswith("CL") and not item.startswith("LI.") and not item.startswith("LII"):
                 source_tweets.append(item)
 
-        mine = markov.MarkovChainer(order)
+        mine = MarkovChainer(order)
         for tweet in source_tweets:
             if re.search('([\.\!\?\"\']$)', tweet):
                 pass
@@ -105,6 +105,3 @@ if __name__=="__main__":
             print("Tweet is empty, sorry.")
         else:
             print("TOO LONG: " + ebook_tweet)
-
-    for line in sonnet_lines:
-        print(line)
