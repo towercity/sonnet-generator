@@ -3,7 +3,11 @@
     <title>Sonnet Generator - Sonnet {{ sonnet.number }}</title>
   </head>
   <body>
-    {% for line in sonnet.lines}
-    <p>{{ line }}</p>
+    <h3>Shakespeare's Sonnet #{{ sonnet.number }}</h3>
+    <p>
+    {% for line in sonnet.lines %}
+    {{ line }} <br>
+    {% endfor %}
+    </p>
   </body>
 </html>
