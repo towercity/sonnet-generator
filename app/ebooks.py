@@ -56,7 +56,7 @@ if __name__=="__main__":
     print("Sonnet number", sonnet_number)
 
     for i in range(0, 12):
-        file = 'sonnets.txt'
+        file = 'app/static/sonnets.txt'
         string_list = open(file).read().split('\n')
         source_tweets = []
 
