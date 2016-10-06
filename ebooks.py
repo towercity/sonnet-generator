@@ -6,15 +6,6 @@ import markov
 # from htmlentitydefs import name2codepoint as n2c
 from local_settings import *
 
-'''
-def connect():
-    api = twitter.Api(consumer_key=MY_CONSUMER_KEY,
-                          consumer_secret=MY_CONSUMER_SECRET,
-                          access_token_key=MY_ACCESS_TOKEN_KEY,
-                          access_token_secret=MY_ACCESS_TOKEN_SECRET)
-    return api
-'''
-
 def entity(text):
     if text[:2] == "&#":
         try:
@@ -48,7 +39,7 @@ def filter_tweet(tweet):
 
 
 def grab_tweets(api, max_id=None):
-    source_tweets=[]
+    source_tweets = []
     user_tweets = api.GetUserTimeline(screen_name=user, count=200, max_id=max_id, include_rts=True, trim_user=True, exclude_replies=True)
     max_id = user_tweets[len(user_tweets)-1].id-1
     for tweet in user_tweets:
@@ -59,14 +50,13 @@ def grab_tweets(api, max_id=None):
 
 if __name__=="__main__":
     order = ORDER
-    if DEBUG==False:
-        guess = random.choice(range(ODDS))
-    else:
-        guess = 0
+    sonnet_number = random.randrange(155, 647)
+    sonnet_lines = []
 
-    if guess == 0:
+    print("Sonnet number", sonnet_number)
+
+    for i in range(0, 12):
         file = 'sonnets.txt'
-        print(">>> Generating from {0}".format(file))
         string_list = open(file).read().split('\n')
         source_tweets = []
 
@@ -109,11 +99,12 @@ if __name__=="__main__":
                 status = api.PostUpdate(ebook_tweet)
                 print(status.text.encode('utf-8'))
             else:
-                print(ebook_tweet)
+                sonnet_lines.append(ebook_tweet)
 
         elif ebook_tweet == None:
             print("Tweet is empty, sorry.")
         else:
             print("TOO LONG: " + ebook_tweet)
-    else:
-        print(str(guess) + " No, sorry, not this time.") #message if the random number fails.
+
+    for line in sonnet_lines:
+        print(line)
