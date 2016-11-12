@@ -1,10 +1,7 @@
 import random
 import re
 import sys
-# import twitter
 import markov
-# from htmlentitydefs import name2codepoint as n2c
-from local_settings import *
 
 def entity(text):
     if text[:2] == "&#":
@@ -49,7 +46,7 @@ def grab_tweets(api, max_id=None):
     return source_tweets, max_id
 
 if __name__=="__main__":
-    order = ORDER
+    order = 3
     sonnet_number = random.randrange(155, 647)
     sonnet_lines = []
 
@@ -97,11 +94,8 @@ if __name__=="__main__":
                     print ("TOO SIMILAR: " + ebook_tweet)
                     sys.exit()
 
-            if DEBUG == False:
-                status = api.PostUpdate(ebook_tweet)
-                print(status.text.encode('utf-8'))
-            else:
-                sonnet_lines.append(ebook_tweet)
+
+            sonnet_lines.append(ebook_tweet)
 
         elif ebook_tweet == None:
             print("Tweet is empty, sorry.")
