@@ -53,7 +53,9 @@ if __name__=="__main__":
     sonnet_number = random.randrange(155, 647)
     sonnet_lines = []
 
+    print("")
     print("Sonnet number", sonnet_number)
+    print("")
 
     for i in range(0, 12):
         file = 'sonnets.txt'
