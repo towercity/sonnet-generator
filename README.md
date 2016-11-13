@@ -8,4 +8,4 @@ Note that, at present, a bug in the code is causing some phrases too smush toget
 
 ## To Run
 
-Simply run new_sonnet.py in the python enviornment of your choice. It will print a unique new sonnet for you.
+Simply run new_sonnet.py in the python enviornment of your choice. It will print a unique new sonnet for you.	
