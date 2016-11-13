@@ -1,11 +1,11 @@
 # Sonnet Generator
 
-A simple python-based web-app that generates a new Shakespearian sonnet every time you reload the page. The randomization
-algorythm is based off the Markov chain, and is modified from tommeagher's [Heroku_ebooks](https://github.com/tommeagher/heroku_ebooks)
+A simple python script that creates a new Shakespearian sonnet based off the language of his original. Based in part on an intentional misreading of Julian Yates' essay "More Life: Shakespeare's Sonnet Machines," available in [Shakesqueer](https://www.dukeupress.edu/Shakesqueer/)
 
-## To-do
+The randomization algorithm uses Markov chains, and is modified from tommeagher's [Heroku_ebooks](https://github.com/tommeagher/heroku_ebooks)
 
-* Move the randomization code into the app
-* Create 14 lines, store in a sonnets object
-* add a random sonnet number to this sonnet as well, starting after the number of Shakey's last sonnet
-* (Somehow) import this object into view
+Note that, at present, a bug in the code is causing some phrases too smush together into long compound words--more James Joyce than Shakespeare. If anyone knows how to fox this, send me a line, or go ahead and make a pull request.
+
+## To Run
+
+Simply run new_sonnet.py in the python enviornment of your choice. It will print a unique new sonnet for you.
