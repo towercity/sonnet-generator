@@ -67,21 +67,21 @@ if __name__=="__main__":
         mine = markov.MarkovChainer(order)
         for tweet in source_tweets:
             if re.search('([\.\!\?\"\']$)', tweet):
-                pass
+                tweet+=" "
             else:
                 tweet+="."
             mine.add_text(tweet)
 
         for x in range(0,10):
             ebook_tweet = mine.generate_sentence()
-            ebook_tweet += " " + mine.generate_sentence().lower()
-            ebook_tweet += " " + mine.generate_sentence().lower()
+            ebook_tweet += " %s" % (mine.generate_sentence().lower())
+            ebook_tweet += " %s" % (mine.generate_sentence().lower())
 
         #if a tweet is very short, this will randomly add a second sentence to it.
         if ebook_tweet != None and len(ebook_tweet) < 40:
             newer_tweet = mine.generate_sentence()
             if newer_tweet != None:
-                ebook_tweet += " " + mine.generate_sentence()
+                ebook_tweet += " %s" % (mine.generate_sentence().lower())
             else:
                 ebook_tweet = ebook_tweet
 
